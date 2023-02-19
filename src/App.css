@@ -29,6 +29,7 @@
   position: fixed;
   top: 0;
   width: 100%;
+  z-index: 10000;
 }
 
 .upper-header {
@@ -61,16 +62,18 @@
 }
 
 .header-menu li {
+  cursor: pointer;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  border-bottom: 2px solid transparent;
+  border-bottom: 4px solid transparent;
   height: 100%;
   position: relative;
+  transition: border-bottom-color 0.3s ease-in-out
 }
 
 .header-menu li:hover, .header-menu li.selected {
-  border-bottom: 2px solid #07071f;
+  border-bottom: 4px solid #07071f;
 }
 
 .header-menu-mobile{
