@@ -4,6 +4,7 @@ import React, { useEffect, useState } from 'react';
 import {Grid, Typography, Paper, Button, TextField, Modal} from '@mui/material'
 import { makeStyles } from "@mui/styles";
 import { Box } from '@mui/system';
+import CountUp from 'react-countup'
 
 function App() {
 
@@ -185,20 +186,6 @@ function KpisBoard() {
   }
 
   function AnimatedKpiGrid3() {
-    const [show, setShow] = useState(false);
-    const [count, setCount] = useState(0);
-    
-    useEffect(() => {
-      setShow(true);
-      let timeout;
-      if (count < 8029) {
-        timeout = setTimeout(() => {
-          setCount(count + 1);
-        }, 0.00001);
-      }
-      return () => clearTimeout(timeout);
-    }, [count]);
-    
     return (
       <Grid item xs={6} md={3}>
         <Grid sx={{
@@ -208,15 +195,14 @@ function KpisBoard() {
           flexDirection: "column", 
           justifyContent: "center", 
           alignItems: "center", 
-          opacity: show ? 1 : 0,
-          transform: show ? "translateY(0)" : "translateY(50px)",
-          transition: "opacity 0.5s ease-out, transform 0.5s ease-out",
         }}>
           <div style={{borderRadius: "50%", border: "3px solid white", width: !isMobileDevice ?  "130px" : "80px", height: !isMobileDevice ? "130px" : "80px", backgroundColor: "#00c3d5", display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center"}}>
-            <div style={{fontSize: !isMobileDevice ? '36px' : '28px', fontWeight: '100'}}>{count}</div>
+            <div style={{fontSize: !isMobileDevice ? '36px' : '28px', fontWeight: '100'}}>
+              <CountUp end={8029} />
+            </div>
             <div style={{fontSize: "10px"}}> משתתפים במחקר עד כה </div>
           </div>
-          <div style={{fontSize: !isMobileDevice ? "12px" : "10px", color: "white", marginTop: "10px"}}> מספר היעד הוא 8029 </div>
+          <div style={{fontSize: !isMobileDevice ? "12px" : "10px", color: "white", marginTop: "10px"}}> מספר היעד הוא 10000 </div>
         </Grid>
       </Grid>
     )
