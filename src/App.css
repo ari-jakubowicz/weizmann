@@ -1,38 +1,124 @@
+* {
+  color: #07071f;
+}
+
 .App {
   text-align: center;
+  height: 100%;
+  width: 100%;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.articles {
+  margin: 20vh 0;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.body {
+  margin-top: 35vh;
+  padding: 0 15vw;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+.footer {
+  background-color: black;
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.header {
+  height: 20vh;
+  min-height: 120px;
+  margin-bottom: 15vh;
+  position: fixed;
+  top: 0;
+  width: 100%;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.upper-header {
+  background-color: #07071f;
+  height: 50%;
+  width: 100%;
+}
+
+.upper-header-desktop {
+  background-color: #07071f;
+  height: 30%;
+  width: 100%;
+}
+
+.lower-header {
+  background-color: white;
+  box-shadow: 0 4px 10px -2px gray;
+  height: 50%;
+  width: 100%;
+}
+
+.header-menu {
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  font-size: 14px;
+  justify-content: space-between;
+  margin: 0 15vw;
+  height: 100%;
+}
+
+.header-menu li {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border-bottom: 2px solid transparent;
+  height: 100%;
+  position: relative;
+}
+
+.header-menu li:hover, .header-menu li.selected {
+  border-bottom: 2px solid #07071f;
+}
+
+.header-menu-mobile{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+}
+
+.header-menu-mobile li {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-bottom: 1px solid grey;
+  height: 50px;
+  margin: 5px 0;
+  font-size: 24px;
+  width: 100%;
+}
+
+.header-menu-mobile li:last-child {
+  border-bottom: 0;
+}
+
+
+.kpis-board {
+  margin-bottom: 10vh;
+}
+
+.general-kpis {
+  background-color: #00c3d5;
+}
+
+.men-women-kpis {
+  background-color: #00c3d5;
+}
+
+.total-kpis {
+  color: white;
+}
+
+/*overrides*/
+ul {
+  padding: 0;
+  list-style-type: none;
+}
+
+h1 {
+  font-size: 72px;
 }
