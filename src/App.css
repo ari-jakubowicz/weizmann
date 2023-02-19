@@ -38,7 +38,10 @@
   width: 100%;
 }
 
-.upper-header-desktop {
+.upper-header-mobile {
+  align-items: center;
+  display: flex;
+  justify-content: center;
   background-color: #07071f;
   height: 30%;
   width: 100%;

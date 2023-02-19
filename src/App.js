@@ -53,10 +53,10 @@ function Header() {
   const details = navigator.userAgent;
   let regexp = /android|iphone|kindle|ipad/i;
   let isMobileDevice = regexp.test(details);
-
+  
   return (
     <>
-      <div className="upper-header">
+      <div className={!isMobileDevice ? "upper-header" : "upper-header-mobile"}>
         {
           !isMobileDevice ? 
             <Grid sx={{ display: "flex", alignItems: "center", height: "100%", width: "100%", padding: "0 15vw", justifyContent: "space-between" }}>
@@ -91,8 +91,9 @@ function Header() {
             </ul>
           ) :
           (
-            <Grid sx={{backgroundColor: "#07071f", height: "100%", alignItems: "center", display: "flex"}}>
+            <Grid sx={{backgroundColor: "#07071f", height: "100%", alignItems: "center", display: "flex", justifyContent: "space-between"}}>
               <Sidebar></Sidebar>
+              <img style={{height: "40px", width: "170px"}} src='./10klogo.png'></img>
             </Grid>
           )
         }
@@ -210,10 +211,12 @@ function KpisBoard() {
   
   
     
-    const details = navigator.userAgent;
-    let regexp = /android|iphone|kindle|ipad/i;
-    let isMobileDevice = regexp.test(details);
+  const details = navigator.userAgent;
+  let regexp = /android|iphone|kindle|ipad/i;
+  let isMobileDevice = regexp.test(details);
 
+
+    
     return (
       <div style={{ height: "35vh", minHeight: "100px", display: "flex", flexDirection: "column" }}>
         <Grid className="kpis" container spacing={2} style={{ flex: "1" }}>
@@ -256,7 +259,7 @@ function KpiGrid() {
   const details = navigator.userAgent;
   let regexp = /android|iphone|kindle|ipad/i;
   let isMobileDevice = regexp.test(details);
-
+  
   const [show, setShow] = useState(false);
   
   useEffect(() => {
@@ -266,7 +269,7 @@ function KpiGrid() {
 
   return (
     
-    <Grid container sx={{
+    <Grid container sx={!isMobileDevice ? {
         backgroundColor: '#00c3d5', 
         color: '#07071f', 
         padding: 2, 
@@ -274,7 +277,14 @@ function KpiGrid() {
         opacity: show ? 1 : 0,
         transform: show ? "translateY(0)" : "translateY(50px)",
         transition: "opacity 0.5s ease-out, transform 1.3s ease-out",
-      }}>
+      } : 
+      {
+        backgroundColor: '#00c3d5', 
+        color: '#07071f', 
+        padding: 2, 
+        height: "100%",
+      }
+      }>
       { 
         !isMobileDevice ? (
           <Grid item xs={6} sx={{display: 'flex', flexDirection: 'row', alignItems: "center", justifyContent: "center", gap: "10px"}}>
@@ -511,36 +521,8 @@ function Footer() {
   return (
     <Grid container spacing={2} sx={{ marginTop: "2rem", padding: "0 15vw" }}>
       <Grid sx={{display: "flex"}} item xs={12}>
-        <Typography sx={{color: "white"}} variant="h6" gutterBottom>
-          Sign up for our newsletter
-        </Typography>
-        <Typography sx={{color: "white"}} variant="body2" gutterBottom>
-          Get notified of the latest news and updates from our site.
-        </Typography>
-        <form noValidate autoComplete="off">
-          <TextField
-            id="email-input"
-            label="Email"
-            type="email"
-            variant="outlined"
-            margin="normal"
-            sx={{backgroundColor: "white"}}
-          />
-        </form>
       </Grid>
       <Grid item xs={12} sx={{ marginTop: "2rem", display: "flex" }}>
-        <Grid sx={{color: "white"}} xs={3}>
-          asd
-        </Grid>
-        <Grid sx={{color: "white"}} xs={3}>
-          asd
-        </Grid>
-        <Grid sx={{color: "white"}} xs={3}>
-          asd
-        </Grid>
-        <Grid sx={{color: "white"}} xs={3}>
-          asd
-        </Grid>
       </Grid>
     </Grid>
   );
